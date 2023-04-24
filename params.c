@@ -14,7 +14,7 @@ void init_params(params_t *params, va_list ap)
 	params->hashtag_flag = 0;
 	params->minus_flag = 0;
 	params->width = 0;
-	params->precision = UINT_MAX;
+	/*params->precision = UINT_MAX;*/
 	params->h_modifier = 0;
 	params->l_modifier = 0;
 	(void)ap;
