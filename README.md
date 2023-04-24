@@ -59,5 +59,29 @@ contains => get_specifier
 
 ---------------
 
+number.c
 
+contains => convert
+	 => print_unsigned
+ 	 => print_address
 
+---------------
+
+_function.c
+
+contains => print_char
+	 => print_int
+         => print_string
+         => print_percent
+         => print_S
+|(NOT DONE YET)
+
+---------------
+
+_put.c
+
+contains => _puts
+	 => _putchar
+
+*********************************************
+may god be with you
