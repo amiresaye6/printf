@@ -21,10 +21,10 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	for (ptr = (char *)format; *p; p++)
+	for (ptr = (char *)format; *ptr; ptr++)
 	{
 		init_params(&params, ap);
-		if (*p != '%')
+		if (*ptr != '%')
 		{
 			res += _putchar(*ptr);
 			continue;
@@ -35,15 +35,15 @@ int _printf(const char *format, ...)
 			ptr++;
 		ptr = get_width(ptr, &params, ap);
 		ptr = get_precision(ptr, &params, ap);
-		if (get_modifier(p, &params))
+		if (get_modifier(ptr, &params))
 			ptr++;
 		if (!get_specifier(ptr))
-			res += print_format_to(st, ptr, params.l_modifier ||
+			res += print_from_to(st, ptr, params.l_modifier ||
 					params.l_modifier ? ptr - 1 : 0);
 		else
 			res += get_print_func(ptr, ap, &params);
 	}
-	_putchar(VUF_FLUSH);
+	_putchar(BUF_FLUSH);
 	va_end(ap);
 	return (res);
 }

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
 
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
@@ -117,7 +118,7 @@ int print_rot13(va_list ap, params_t *params);
 /* print_number.c file */
 
 int _isdigit(int c);
-int _strlen(cahr *s);
+int _strlen(char *s);
 int print_number(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
 int print_number_right_shift(char *str, params_t *params);
@@ -132,13 +133,13 @@ void init_params(params_t *params, va_list ap);
 
 /* string_fields.c file */
 
-char *get_precision(char *p, params_t *params, val_list);
+char *get_precision(char *p, params_t *params, va_list);
 
 /* ---------------- */
 
 /* _printf.c file */
 
-int _printf(coinst char *format, ...);
+int _printf(const char *format, ...);
 
 /* --------------- */
 

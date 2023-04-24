@@ -6,7 +6,7 @@
  * Return: numper of printded pytes
  */
 
-int (*get_specifier(char *str))(va_list ap, params_t params)
+int (*get_specifier(char *str))(va_list ap, params_t *params)
 {
 	specifier_t specifiers[] = {
 		{"c", print_char},
@@ -15,7 +15,7 @@ int (*get_specifier(char *str))(va_list ap, params_t params)
 		{"s", print_string},
 		{"%", print_percent},
 		{"b", print_binary},
-		{"o", print_octal},
+		{"o", print_octa},
 		{"u", print_unsigned},
 		{"x", print_hex},
 		{"X", print_HEX},
@@ -43,9 +43,9 @@ int (*get_specifier(char *str))(va_list ap, params_t params)
  * Return: number of bytes printed
  */
 
-int get_print_func(char *str, va_list ap, params_t params)
+int get_print_func(char *str, va_list ap, params_t *params)
 {
-	int (*f)(va_list, params *) = get_specifier(s);
+	int (*f)(va_list, params_t *) = get_specifier(str);
 
 	if (f)
 		return (f(ap, params));
@@ -59,7 +59,7 @@ int get_print_func(char *str, va_list ap, params_t params)
  * Return:  if flag is valid
  */
 
-int get_flag(char *str, params_t params)
+int get_flag(char *str, params_t *params)
 {
 	int i = 0;
 
@@ -91,7 +91,7 @@ int get_flag(char *str, params_t params)
  * Return: if modifier was valid
  */
 
-int get_modifier(char *str, params_t params)
+int get_modifier(char *str, params_t *params)
 {
 	int i = 0;
 
@@ -126,7 +126,7 @@ char *get_width(char *str, params_t *params, va_list ap)
 	}
 	else
 	{
-		while (_isdigit(*s))
+		while (_isdigit(*str))
 			d = d * 10 + (*str++ - '0');
 	}
 	params->width = d;

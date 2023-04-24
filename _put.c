@@ -7,7 +7,7 @@
  * Return: void
  */
 
-void _puts(cha *str)
+int _puts(char *str)
 {
 	char *a = str;
 
@@ -26,7 +26,7 @@ int _putchar(int c)
 	static int i;
 	static char b[OUTPUT_BUF_SIZE];
 
-	if (c == BUF_FLUSH || i >= OUTPUT_BUT_SIZE)
+	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
 	{
 		write(1, b, i);
 		i = 0;
