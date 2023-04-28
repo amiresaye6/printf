@@ -84,4 +84,5 @@ contains => _puts
 	 => _putchar
 
 *********************************************
-may God be with you. Amen
+may God be with you. Amen!
+
